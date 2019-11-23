@@ -1,0 +1,15 @@
+E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\MyBox.dll
+E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\MyBox.pdb
+E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\MyBox.dll.manifest
+E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\MyBox.vsto
+E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.csprojAssemblyReference.cache
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.Properties.Resources.resources
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.Ribbon1.resources
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.csproj.GenerateResource.cache
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.csproj.CopyComplete
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.dll
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.pdb
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.Test.resources
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.AddTxt1.resources
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.AddTxt2.resources
