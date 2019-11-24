@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace MyBox
 {
@@ -28,23 +29,57 @@ namespace MyBox
 
         private void btn_minus_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txt_content.Text) > 1)
+            if (!string.IsNullOrEmpty(txt_index.Text) && Convert.ToInt32(txt_index.Text) > 1)
             {
-                txt_content.Text = (Convert.ToInt32(txt_content.Text) - 1).ToString();
+                txt_index.Text = (Convert.ToInt32(txt_index.Text) - 1).ToString();
             }
         }
 
         private void btn_plus_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txt_content.Text) < 9999)
+            if (!string.IsNullOrEmpty(txt_index.Text) && Convert.ToInt32(txt_index.Text) < 9999)
             {
-                txt_content.Text = (Convert.ToInt32(txt_content.Text) + 1).ToString();
+                txt_index.Text = (Convert.ToInt32(txt_index.Text) + 1).ToString();
             }
         }
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            txt_content.Text
+            if (string.IsNullOrEmpty(txt_index.Text))
+            {
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txt_content.Text))
+            {
+                return;
+            }
+
+            int index = Convert.ToInt32(txt_index.Text);
+
+            string str = txt_content.Text;
+
+            int cnt = str.Count();
+
+            if (cnt < index)
+            {
+                index = cnt;
+            }
+
+            if (rbt_addToStart.Checked)
+            {
+                foreach (Excel.Range item in Globals.ThisAddIn.Application.Selection)
+                {
+                    item.Value = item.Value.Insert(index - 1, txt_content.Text);
+                }
+            }
+
+            this.Close();
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

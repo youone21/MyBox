@@ -18,36 +18,6 @@ namespace MyBox
         Excel.Worksheet activeSheet;
 
         /// <summary>
-        /// checkBox(HeighLight) click
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ckbHeighLight_Click(object sender, RibbonControlEventArgs e)
-        {
-
-        }
-
-        private void OpenHeighLight()
-        {
-
-                activeSheet = Globals.ThisAddIn.Application.ActiveSheet;
-                activeSheet.SelectionChange += new Excel.DocEvents_SelectionChangeEventHandler(SelectionChanged);
-        }
-
-        private void SelectionChanged(Excel.Range target)
-        {
-            string str = target.AddressLocal;
-            MessageBox.Show(str);
-        }
-
-        private void button1_Click(object sender, RibbonControlEventArgs e)
-        {
-            Test test = new Test();
-            test.StartPosition = FormStartPosition.CenterParent;
-            test.ShowDialog();
-        }
-
-        /// <summary>
         /// 插入文本到开头
         /// </summary>
         /// <param name="sender"></param>

@@ -39,7 +39,7 @@
             // 
             this.txt_addTxtContent.Location = new System.Drawing.Point(12, 50);
             this.txt_addTxtContent.Name = "txt_addTxtContent";
-            this.txt_addTxtContent.Size = new System.Drawing.Size(390, 36);
+            this.txt_addTxtContent.Size = new System.Drawing.Size(270, 22);
             this.txt_addTxtContent.TabIndex = 0;
             // 
             // label1
@@ -47,15 +47,15 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 28);
+            this.label1.Size = new System.Drawing.Size(119, 14);
             this.label1.TabIndex = 1;
             this.label1.Text = "输入要插入的内容";
             // 
             // btn_ok
             // 
-            this.btn_ok.Location = new System.Drawing.Point(140, 138);
+            this.btn_ok.Location = new System.Drawing.Point(98, 109);
             this.btn_ok.Name = "btn_ok";
-            this.btn_ok.Size = new System.Drawing.Size(125, 36);
+            this.btn_ok.Size = new System.Drawing.Size(75, 26);
             this.btn_ok.TabIndex = 2;
             this.btn_ok.Text = "确定";
             this.btn_ok.UseVisualStyleBackColor = true;
@@ -63,9 +63,9 @@
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(271, 138);
+            this.btn_cancel.Location = new System.Drawing.Point(207, 109);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(131, 36);
+            this.btn_cancel.Size = new System.Drawing.Size(75, 26);
             this.btn_cancel.TabIndex = 3;
             this.btn_cancel.Text = "取消";
             this.btn_cancel.UseVisualStyleBackColor = true;
@@ -74,17 +74,17 @@
             // lbl_error
             // 
             this.lbl_error.AutoSize = true;
-            this.lbl_error.Location = new System.Drawing.Point(12, 107);
+            this.lbl_error.Location = new System.Drawing.Point(12, 85);
             this.lbl_error.Name = "lbl_error";
-            this.lbl_error.Size = new System.Drawing.Size(90, 28);
+            this.lbl_error.Size = new System.Drawing.Size(49, 14);
             this.lbl_error.TabIndex = 4;
             this.lbl_error.Text = "label2";
             // 
             // AddTxt1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 200);
+            this.ClientSize = new System.Drawing.Size(322, 164);
             this.Controls.Add(this.lbl_error);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_ok);
