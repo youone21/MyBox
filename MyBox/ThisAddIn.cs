@@ -8,6 +8,7 @@ using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Excel;
 using Microsoft.Office.Tools;
 using System.Windows.Forms;
+using MyBox.Log;
 
 namespace MyBox
 {
@@ -26,7 +27,9 @@ namespace MyBox
 
         public void ShowUserControl()
         {
+            Logger log = Logger.GetLogger("ThisAddin");
             int hwnd = this.Application.ActiveWindow.Hwnd;
+            log.Info("ShowUserControl：" + "Hwnd：" + hwnd.ToString());
             Dictionary<int, CustomTaskPane> taskPane = new Dictionary<int, CustomTaskPane>();
             UserControl1 ctrl = new UserControl1();
             CustomTaskPane pane = this.CustomTaskPanes.Add(ctrl, "***", this.Application.ActiveWindow);
@@ -48,6 +51,44 @@ namespace MyBox
 
             pane.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionRight;
             pane.Visible = true;
+        }
+
+        Dictionary<string, CustomTaskPane> taskPane = new Dictionary<string, CustomTaskPane>();
+
+        public void ShowFind()
+        {
+            Logger log = Logger.GetLogger("ThisAddin");
+            int hwnd = this.Application.ActiveWindow.Hwnd;
+            log.Info("ShowFind：" + "Hwnd：" + hwnd.ToString());
+
+            Find ctrl = new Find();
+            CustomTaskPane pane = this.CustomTaskPanes.Add(ctrl, "***", this.Application.ActiveWindow);
+
+            if (taskPane.ContainsKey(hwnd.ToString() + "Find"))
+            {
+                if (taskPane != null && taskPane.Count() != 0)
+                {
+                    taskPane.TryGetValue(hwnd.ToString() + "Find", out pane);
+                    log.Info(pane.Window.ToString());
+                    if (pane.Visible == false)
+                    {
+                        pane.Visible = true;
+                    }
+                    else
+                    {
+                        pane.Visible = false;
+                    }
+                }
+            }
+            else
+            {
+                taskPane.Add(hwnd.ToString() + "Find", pane);
+                taskPane.TryGetValue(hwnd.ToString() + "Find", out pane);
+                log.Info(pane.ToString());
+
+                pane.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionRight;
+                pane.Visible = true;
+            }
         }
 
         #region VSTO 生成的代码

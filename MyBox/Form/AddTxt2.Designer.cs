@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddTxt2));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_plus = new System.Windows.Forms.Button();
             this.btn_minus = new System.Windows.Forms.Button();
@@ -39,14 +40,17 @@
             this.btn_ok = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtb = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txt_content = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -91,6 +95,7 @@
             this.txt_index.Name = "txt_index";
             this.txt_index.Size = new System.Drawing.Size(64, 22);
             this.txt_index.TabIndex = 2;
+            this.txt_index.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_index.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_content_KeyPress);
             // 
             // radioButton1
@@ -147,7 +152,7 @@
             // 
             // btn_ok
             // 
-            this.btn_ok.Location = new System.Drawing.Point(169, 319);
+            this.btn_ok.Location = new System.Drawing.Point(162, 325);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(69, 32);
             this.btn_ok.TabIndex = 2;
@@ -157,7 +162,7 @@
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(287, 319);
+            this.btn_cancel.Location = new System.Drawing.Point(287, 325);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(68, 32);
             this.btn_cancel.TabIndex = 3;
@@ -167,24 +172,35 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.richTextBox1);
+            this.groupBox3.BackColor = System.Drawing.Color.White;
+            this.groupBox3.Controls.Add(this.pictureBox1);
+            this.groupBox3.Controls.Add(this.rtb);
+            this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Location = new System.Drawing.Point(418, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(301, 339);
+            this.groupBox3.Size = new System.Drawing.Size(301, 345);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "示例";
             // 
-            // richTextBox1
+            // rtb
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(19, 21);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(264, 297);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "\n\n\n\n\n   示例文本\n\n\n\n   ⇩\n\n\n\n   示例文本";
+            this.rtb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtb.Location = new System.Drawing.Point(42, 189);
+            this.rtb.Name = "rtb";
+            this.rtb.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.rtb.Size = new System.Drawing.Size(240, 130);
+            this.rtb.TabIndex = 2;
+            this.rtb.Text = "示例文本";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(38, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 14);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "示例文本";
             // 
             // groupBox4
             // 
@@ -205,6 +221,7 @@
             this.txt_content.Name = "txt_content";
             this.txt_content.Size = new System.Drawing.Size(193, 22);
             this.txt_content.TabIndex = 1;
+            this.txt_content.TextChanged += new System.EventHandler(this.txt_content_TextChanged);
             // 
             // label1
             // 
@@ -218,11 +235,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "插入文本：";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(72, 118);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 35);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // AddTxt2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 396);
+            this.ClientSize = new System.Drawing.Size(731, 369);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btn_cancel);
@@ -233,13 +259,16 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AddTxt2";
             this.Text = "插入文本到中间";
+            this.Load += new System.EventHandler(this.AddTxt2_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,6 +289,8 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_content;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox rtb;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

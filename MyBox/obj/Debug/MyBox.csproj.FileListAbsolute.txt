@@ -28,3 +28,5 @@ F:\GitHub\youone21\MyBox\MyBox\obj\Debug\MyBox.csproj.CoreCompileInputs.cache
 F:\GitHub\youone21\MyBox\MyBox\obj\Debug\MyBox.csproj.CopyComplete
 F:\GitHub\youone21\MyBox\MyBox\obj\Debug\MyBox.dll
 F:\GitHub\youone21\MyBox\MyBox\obj\Debug\MyBox.pdb
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.UserControl1.resources
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.Find.resources

@@ -43,6 +43,7 @@
             this.group3 = this.Factory.CreateRibbonGroup();
             this.btn_userControl1 = this.Factory.CreateRibbonButton();
             this.btn_Terminal = this.Factory.CreateRibbonButton();
+            this.btn_find = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             this.group3.SuspendLayout();
@@ -95,6 +96,7 @@
             // 
             this.group3.Items.Add(this.btn_userControl1);
             this.group3.Items.Add(this.btn_Terminal);
+            this.group3.Items.Add(this.btn_find);
             this.group3.Label = "group3";
             this.group3.Name = "group3";
             // 
@@ -109,6 +111,12 @@
             this.btn_Terminal.Label = "Terminal";
             this.btn_Terminal.Name = "btn_Terminal";
             this.btn_Terminal.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.Btn_Terminal_Click);
+            // 
+            // btn_find
+            // 
+            this.btn_find.Label = "查找对话框";
+            this.btn_find.Name = "btn_find";
+            this.btn_find.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_find_Click);
             // 
             // Ribbon1
             // 
@@ -137,6 +145,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_addTxtToEnd;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_userControl1;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_Terminal;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_find;
     }
 
     partial class ThisRibbonCollection

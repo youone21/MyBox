@@ -57,27 +57,17 @@ namespace MyBox
 
         private void Btn_userControl1_Click(object sender, RibbonControlEventArgs e)
         {
-
-            if (Globals.ThisAddIn.myTaskPane !=null)
-            {
-                if (Globals.ThisAddIn.myTaskPane.Visible == true)
-                {
-                    Globals.ThisAddIn.myTaskPane.Visible = false;
-                }
-                else
-                {
-                    Globals.ThisAddIn.myTaskPane.Visible = true;
-                }
-            }
-            else
-            {
-                Globals.ThisAddIn.ShowUserControl();
-            }
+            Globals.ThisAddIn.ShowUserControl();
         }
 
         private void Btn_Terminal_Click(object sender, RibbonControlEventArgs e)
         {
 
+        }
+
+        private void btn_find_Click(object sender, RibbonControlEventArgs e)
+        {
+            Globals.ThisAddIn.ShowFind();
         }
     }
 }
