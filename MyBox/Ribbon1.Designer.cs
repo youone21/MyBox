@@ -41,8 +41,11 @@
             this.btn_addTxtToMid = this.Factory.CreateRibbonButton();
             this.btn_addTxtToEnd = this.Factory.CreateRibbonButton();
             this.group3 = this.Factory.CreateRibbonGroup();
+            this.btn_userControl1 = this.Factory.CreateRibbonButton();
+            this.btn_Terminal = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
+            this.group3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab1
@@ -90,8 +93,22 @@
             // 
             // group3
             // 
+            this.group3.Items.Add(this.btn_userControl1);
+            this.group3.Items.Add(this.btn_Terminal);
             this.group3.Label = "group3";
             this.group3.Name = "group3";
+            // 
+            // btn_userControl1
+            // 
+            this.btn_userControl1.Label = "UserControl1";
+            this.btn_userControl1.Name = "btn_userControl1";
+            this.btn_userControl1.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.Btn_userControl1_Click);
+            // 
+            // btn_Terminal
+            // 
+            this.btn_Terminal.Label = "Terminal";
+            this.btn_Terminal.Name = "btn_Terminal";
+            this.btn_Terminal.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.Btn_Terminal_Click);
             // 
             // Ribbon1
             // 
@@ -103,6 +120,8 @@
             this.tab1.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
+            this.group3.ResumeLayout(false);
+            this.group3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -116,6 +135,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_addTxtToStart;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_addTxtToMid;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_addTxtToEnd;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_userControl1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_Terminal;
     }
 
     partial class ThisRibbonCollection

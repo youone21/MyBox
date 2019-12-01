@@ -54,5 +54,30 @@ namespace MyBox
             addTxt2.StartPosition = FormStartPosition.CenterParent;
             addTxt2.ShowDialog();
         }
+
+        private void Btn_userControl1_Click(object sender, RibbonControlEventArgs e)
+        {
+
+            if (Globals.ThisAddIn.myTaskPane !=null)
+            {
+                if (Globals.ThisAddIn.myTaskPane.Visible == true)
+                {
+                    Globals.ThisAddIn.myTaskPane.Visible = false;
+                }
+                else
+                {
+                    Globals.ThisAddIn.myTaskPane.Visible = true;
+                }
+            }
+            else
+            {
+                Globals.ThisAddIn.ShowUserControl();
+            }
+        }
+
+        private void Btn_Terminal_Click(object sender, RibbonControlEventArgs e)
+        {
+
+        }
     }
 }
