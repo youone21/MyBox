@@ -40,17 +40,17 @@
             this.btn_ok = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rtb = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txt_content = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -96,6 +96,7 @@
             this.txt_index.Size = new System.Drawing.Size(64, 22);
             this.txt_index.TabIndex = 2;
             this.txt_index.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_index.TextChanged += new System.EventHandler(this.Txt_index_TextChanged);
             this.txt_index.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_content_KeyPress);
             // 
             // radioButton1
@@ -135,6 +136,7 @@
             this.rbt_addToEnd.TabStop = true;
             this.rbt_addToEnd.Text = "插入到后面";
             this.rbt_addToEnd.UseVisualStyleBackColor = true;
+            this.rbt_addToEnd.TextChanged += new System.EventHandler(this.Rbt_addToEnd_TextChanged);
             // 
             // rbt_addToStart
             // 
@@ -182,6 +184,15 @@
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "示例";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(72, 118);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 35);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // rtb
             // 
@@ -235,15 +246,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "插入文本：";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(72, 118);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 35);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // AddTxt2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -266,9 +268,9 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
