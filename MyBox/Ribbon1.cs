@@ -5,9 +5,16 @@ using System.Text;
 using Microsoft.Office.Tools.Ribbon;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
+using System.Windows.Forms.Integration;
 
 namespace MyBox
 {
+    /*
+     * 作成者  日期        详细
+     * zjx    2019-12-14  坐标：东京
+     */
+
+
     public partial class Ribbon1
     {
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
@@ -68,6 +75,18 @@ namespace MyBox
         private void btn_find_Click(object sender, RibbonControlEventArgs e)
         {
             Globals.ThisAddIn.ShowFind();
+        }
+
+        /// <summary>
+        /// 收纳箱
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Storage_Click(object sender, RibbonControlEventArgs e)
+        {
+            StorageBox sb = new StorageBox();
+            sb.StartPosition = FormStartPosition.CenterParent;
+            sb.ShowDialog();
         }
     }
 }

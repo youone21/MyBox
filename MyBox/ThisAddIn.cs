@@ -27,17 +27,37 @@ namespace MyBox
 
         public void ShowUserControl()
         {
-            Logger log = Logger.GetLogger("ThisAddin");
             int hwnd = this.Application.ActiveWindow.Hwnd;
-            log.Info("ShowUserControl：" + "Hwnd：" + hwnd.ToString());
-            Dictionary<int, CustomTaskPane> taskPane = new Dictionary<int, CustomTaskPane>();
-            UserControl1 ctrl = new UserControl1();
-            CustomTaskPane pane = this.CustomTaskPanes.Add(ctrl, "***", this.Application.ActiveWindow);
-            taskPane.Add(this.Application.ActiveWindow.Hwnd, pane);
-            taskPane.TryGetValue(this.Application.ActiveWindow.Hwnd, out pane);
+            Logger.Info("ShowUserControl：" + "Hwnd：" + hwnd.ToString());
 
-            pane.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionRight;
-            pane.Visible = true;
+            UserControl ctrl = new UserControl();
+            CustomTaskPane pane = this.CustomTaskPanes.Add(ctrl, "***", this.Application.ActiveWindow);
+
+            if (taskPane.ContainsKey(hwnd.ToString() + "UserControl"))
+            {
+                if (taskPane != null && taskPane.Count() != 0)
+                {
+                    taskPane.TryGetValue(hwnd.ToString() + "UserControl", out pane);
+                    Logger.Info(pane.Window.ToString());
+                    if (pane.Visible == false)
+                    {
+                        pane.Visible = true;
+                    }
+                    else
+                    {
+                        pane.Visible = false;
+                    }
+                }
+            }
+            else
+            {
+                taskPane.Add(hwnd.ToString() + "UserControl", pane);
+                taskPane.TryGetValue(hwnd.ToString() + "UserControl", out pane);
+                Logger.Info(pane.ToString());
+
+                pane.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionRight;
+                pane.Visible = true;
+            }
         }
 
         public void ShowTerminal()
@@ -57,9 +77,8 @@ namespace MyBox
 
         public void ShowFind()
         {
-            Logger log = Logger.GetLogger("ThisAddin");
             int hwnd = this.Application.ActiveWindow.Hwnd;
-            log.Info("ShowFind：" + "Hwnd：" + hwnd.ToString());
+            Logger.Info("ShowFind：" + "Hwnd：" + hwnd.ToString());
 
             Find ctrl = new Find();
             CustomTaskPane pane = this.CustomTaskPanes.Add(ctrl, "***", this.Application.ActiveWindow);
@@ -69,7 +88,7 @@ namespace MyBox
                 if (taskPane != null && taskPane.Count() != 0)
                 {
                     taskPane.TryGetValue(hwnd.ToString() + "Find", out pane);
-                    log.Info(pane.Window.ToString());
+                    Logger.Info(pane.Window.ToString());
                     if (pane.Visible == false)
                     {
                         pane.Visible = true;
@@ -84,7 +103,7 @@ namespace MyBox
             {
                 taskPane.Add(hwnd.ToString() + "Find", pane);
                 taskPane.TryGetValue(hwnd.ToString() + "Find", out pane);
-                log.Info(pane.ToString());
+                Logger.Info(pane.ToString());
 
                 pane.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionRight;
                 pane.Visible = true;

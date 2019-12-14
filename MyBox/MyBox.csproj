@@ -118,15 +118,24 @@
   -->
   <ItemGroup>
     <Reference Include="Accessibility" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Tools.v4.0.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -174,6 +183,8 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Common\JsonAccess.cs" />
+    <Compile Include="Common\TabPageNameAccess.cs" />
     <Compile Include="Find.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,8 +204,15 @@
       <DependentUpon>AddTxt2.cs</DependentUpon>
     </Compile>
     <Compile Include="Log\Logger.cs" />
+    <Compile Include="Models\TabPageNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Form\StorageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\StorageBox.Designer.cs">
+      <DependentUpon>StorageBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Terminal.cs">
       <SubType>UserControl</SubType>
@@ -229,12 +247,38 @@
     <EmbeddedResource Include="Ribbon1.resx">
       <DependentUpon>Ribbon1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\StorageBox.resx">
+      <DependentUpon>StorageBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Terminal.resx">
       <DependentUpon>Terminal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\logs\Info\20191214115456561.log" />
+    <None Include="bin\Debug\logs\Info\20191214115457327.log" />
+    <None Include="bin\Debug\logs\Info\20191214115457546.log" />
+    <None Include="bin\Debug\logs\Info\20191214115457966.log" />
+    <None Include="bin\Debug\logs\Info\20191214115458047.log" />
+    <None Include="bin\Debug\logs\Info\20191214115458386.log" />
+    <None Include="bin\Debug\logs\Info\20191214115458436.log" />
+    <None Include="bin\Debug\logs\Info\20191214115458546.log" />
+    <None Include="bin\Debug\logs\Info\20191214115459556.log" />
+    <None Include="bin\Debug\logs\Info\20191214115459587.log" />
+    <None Include="bin\Debug\logs\Info\20191214115459594.log" />
+    <None Include="bin\Debug\logs\Info\20191214115459638.log" />
+    <None Include="bin\Debug\logs\Info\20191214115459646.log" />
+    <None Include="bin\Debug\logs\Info\20191214125424606.log" />
+    <None Include="bin\Debug\logs\Info\20191214125425826.log" />
+    <None Include="bin\Debug\logs\Info\20191214125427997.log" />
+    <None Include="bin\Debug\logs\Info\20191214125428456.log" />
+    <None Include="bin\Debug\logs\Info\20191214125428986.log" />
+    <None Include="bin\Debug\logs\Info\20191214125430116.log" />
+    <None Include="bin\Debug\logs\Info\20191214125430506.log" />
+    <None Include="bin\Debug\logs\Info\20191214125430886.log" />
+    <None Include="bin\Debug\MyBox.dll.manifest" />
+    <None Include="bin\Debug\MyBox.vsto" />
     <None Include="MyBox_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -243,9 +287,6 @@
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Ribbon.cs">
-      <XmlRibbon>true</XmlRibbon>
     </Compile>
     <Compile Include="Ribbon1.cs">
       <SubType>Component</SubType>
@@ -265,9 +306,15 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Ribbon.xml" />
+    <Content Include="bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll" />
+    <Content Include="bin\Debug\MyBox.dll" />
+    <Content Include="bin\Debug\MyBox.pdb" />
+    <Content Include="Dll\Newtonsoft.Json.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="bin\Debug\Json\" />
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -289,7 +336,7 @@
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
-        <ProjectProperties HostName="Excel" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="Excel" Language="cs" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\16.0\Excel\InstallRoot\Path#excel.exe" DebugInfoCommandLine="/x" AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
+        <ProjectProperties HostName="Excel" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="Excel" Language="cs" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\15.0\Excel\InstallRoot\Path#excel.exe" DebugInfoCommandLine="/x" AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
         <Host Name="Excel" GeneratedCodeNamespace="MyBox" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
           <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" PublishedHash="9CF6EADA05D238387B7384C969754C5915D62E3C" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" />
         </Host>

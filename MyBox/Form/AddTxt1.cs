@@ -48,7 +48,7 @@ namespace MyBox
                 {
                     foreach (Excel.Range item in Globals.ThisAddIn.Application.Selection)
                     {
-                        item.Value = ctn + currentRange.Value;
+                        item.Value = ctn;
                     }
                 }
                 else if (title_2.Equals(this.Text))

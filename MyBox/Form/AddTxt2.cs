@@ -25,7 +25,7 @@ namespace MyBox
         private void txt_content_KeyPress(object sender, KeyPressEventArgs e)
         {
             // 48代表0，57代表9，8代表空格，46代表小数点
-            if ((e.KeyChar < 48 || e.KeyChar > 57))
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
             {
                 e.Handled = true;
             }
@@ -49,8 +49,6 @@ namespace MyBox
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            Logger log = Logger.GetLogger("AddTxt2");
-
             if (string.IsNullOrEmpty(txt_index.Text))
             {
                 return;
@@ -63,7 +61,7 @@ namespace MyBox
 
             if (Globals.ThisAddIn.Application.ActiveCell.Value == null)
             {
-                log.Info("所选单元格为空！");
+                Logger.Info("所选单元格为空！");
                 return;
             }
 
@@ -82,7 +80,7 @@ namespace MyBox
                     foreach (Excel.Range item in Globals.ThisAddIn.Application.Selection)
                     {
                         string itemValue = null;
-                        log.Info("所选择的单元格类型：" + item.Value.GetType().ToString());
+                        Logger.Info("所选择的单元格类型：" + item.Value.GetType().ToString());
                         if (typeof(System.Double) == item.Value.GetType())
                         {
                             itemValue = item.Value.ToString("G");
@@ -93,7 +91,7 @@ namespace MyBox
                         }
 
                         int cnt = itemValue.Length;
-                        log.Info("所选单元格文字长度：" + cnt.ToString());
+                        Logger.Info("所选单元格文字长度：" + cnt.ToString());
 
                         if (cnt < index)
                         {
@@ -108,7 +106,7 @@ namespace MyBox
                     foreach (Excel.Range item in Globals.ThisAddIn.Application.Selection)
                     {
                         string itemValue = null;
-                        log.Info("所选择的单元格类型：" + item.Value.GetType().ToString());
+                        Logger.Info("所选择的单元格类型：" + item.Value.GetType().ToString());
                         if (typeof(System.Double) == item.Value.GetType())
                         {
                             itemValue = item.Value.ToString("G");
@@ -119,7 +117,7 @@ namespace MyBox
                         }
 
                         int cnt = itemValue.Length;
-                        log.Info("所选单元格文字长度：" + cnt.ToString());
+                        Logger.Info("所选单元格文字长度：" + cnt.ToString());
 
                         if (cnt < index)
                         {
@@ -133,7 +131,7 @@ namespace MyBox
             }
             catch (Exception ex)
             {
-                log.Error(ex.ToString());
+                Logger.Error(ex.ToString());
             }
         }
 
@@ -154,6 +152,8 @@ namespace MyBox
             if (range.Value == null)
             {
                 CellValue = CellInit;
+                label2.Text = CellInit;
+                rtb.Text = CellInit;
                 return;
             }
             string value = null;
@@ -173,8 +173,6 @@ namespace MyBox
 
         private void ChangeText()
         {
-            Logger log = Logger.GetLogger("AddTxt2");
-
             if (string.IsNullOrEmpty(txt_index.Text))
             {
                 return;
@@ -188,7 +186,7 @@ namespace MyBox
 
             if (Globals.ThisAddIn.Application.ActiveCell.Value == null)
             {
-                log.Info("所选单元格为空");
+                Logger.Info("所选单元格为空");
                 return;
             }
 
@@ -235,7 +233,7 @@ namespace MyBox
             }
             catch (Exception ex)
             {
-                log.Error(ex.ToString());
+                Logger.Error(ex.ToString());
             }
         }
 
@@ -257,6 +255,11 @@ namespace MyBox
         }
 
         private void Rbt_addToEnd_TextChanged(object sender, EventArgs e)
+        {
+            ChangeText();
+        }
+
+        private void rbt_addToEnd_CheckedChanged(object sender, EventArgs e)
         {
             ChangeText();
         }

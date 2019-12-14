@@ -34,7 +34,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ribbon1));
             this.tab1 = this.Factory.CreateRibbonTab();
+            this.StorageBox = this.Factory.CreateRibbonGroup();
+            this.btn_Storage = this.Factory.CreateRibbonButton();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.menu1 = this.Factory.CreateRibbonMenu();
             this.btn_addTxtToStart = this.Factory.CreateRibbonButton();
@@ -45,6 +48,7 @@
             this.btn_Terminal = this.Factory.CreateRibbonButton();
             this.btn_find = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
+            this.StorageBox.SuspendLayout();
             this.group1.SuspendLayout();
             this.group3.SuspendLayout();
             this.SuspendLayout();
@@ -52,10 +56,26 @@
             // tab1
             // 
             this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
+            this.tab1.Groups.Add(this.StorageBox);
             this.tab1.Groups.Add(this.group1);
             this.tab1.Groups.Add(this.group3);
             this.tab1.Label = "万能魔盒";
             this.tab1.Name = "tab1";
+            // 
+            // StorageBox
+            // 
+            this.StorageBox.Items.Add(this.btn_Storage);
+            this.StorageBox.Label = "收纳箱";
+            this.StorageBox.Name = "StorageBox";
+            // 
+            // btn_Storage
+            // 
+            this.btn_Storage.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.btn_Storage.Image = ((System.Drawing.Image)(resources.GetObject("btn_Storage.Image")));
+            this.btn_Storage.Label = "收纳";
+            this.btn_Storage.Name = "btn_Storage";
+            this.btn_Storage.ShowImage = true;
+            this.btn_Storage.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_Storage_Click);
             // 
             // group1
             // 
@@ -126,6 +146,8 @@
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Ribbon1_Load);
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
+            this.StorageBox.ResumeLayout(false);
+            this.StorageBox.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
             this.group3.ResumeLayout(false);
@@ -146,6 +168,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_userControl1;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_Terminal;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_find;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup StorageBox;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_Storage;
     }
 
     partial class ThisRibbonCollection

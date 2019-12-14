@@ -136,6 +136,7 @@
             this.rbt_addToEnd.TabStop = true;
             this.rbt_addToEnd.Text = "插入到后面";
             this.rbt_addToEnd.UseVisualStyleBackColor = true;
+            this.rbt_addToEnd.CheckedChanged += new System.EventHandler(this.rbt_addToEnd_CheckedChanged);
             this.rbt_addToEnd.TextChanged += new System.EventHandler(this.Rbt_addToEnd_TextChanged);
             // 
             // rbt_addToStart

@@ -2,7 +2,6 @@ E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\MyBox.dll
 E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\MyBox.pdb
 E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\MyBox.dll.manifest
 E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\MyBox.vsto
-E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
 E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.csprojAssemblyReference.cache
 E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.Properties.Resources.resources
 E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.Ribbon1.resources
@@ -30,3 +29,6 @@ F:\GitHub\youone21\MyBox\MyBox\obj\Debug\MyBox.dll
 F:\GitHub\youone21\MyBox\MyBox\obj\Debug\MyBox.pdb
 E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.UserControl1.resources
 E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.Find.resources
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.Terminal.resources
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.StorageBox.resources
+E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\Newtonsoft.Json.dll
