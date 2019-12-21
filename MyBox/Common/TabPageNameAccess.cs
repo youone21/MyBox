@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MyBox.Common
 {
@@ -43,7 +44,7 @@ namespace MyBox.Common
         /// <summary>
         /// 保存tabPage的名字
         /// </summary>
-        public void WriteJsonTabPageNames(string tabPageName)
+        public bool WriteJsonTabPageNames(string tabPageName)
         {
             tabPageAll = new TabPageAll();
             Logger.Debug("[保存tabPage的名字] 执行开始");
@@ -64,18 +65,23 @@ namespace MyBox.Common
             catch (Exception e)
             {
                 Logger.Error(e.ToString());
-                return;
+                return false;
             }
 
-            //int cnt = 0;
+            int cnt = 0;
 
-            //if (tpnList != null && tpnList.Count > 0)
-            //{
-            //    cnt = (from tpn in tpnList
-            //           where tpn.Name.Contains(tabPageName)
-            //           select tpn).Count();
-            //}
+            if (tabPageAll != null && tabPageAll.TabPageNames.Count > 0)
+            {
+                cnt = (from tpn in tabPageAll.TabPageNames
+                       where tpn.Name.Contains(tabPageName)
+                       select tpn).Count();
+            }
 
+            if (cnt > 0)
+            {
+                MessageBox.Show("类别名称已存在！");
+                return false;
+            }
             // 声明TabPageNames
             TabPageNames tpn2 = new TabPageNames();
 
@@ -89,6 +95,7 @@ namespace MyBox.Common
             // 如果添加在名字存在
 
             Logger.Debug("[保存tabPage的名字] 执行终了");
+            return true;
         }
 
     }

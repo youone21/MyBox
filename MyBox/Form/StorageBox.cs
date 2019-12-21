@@ -65,9 +65,12 @@ namespace MyBox
 
             // 写入Json
             tpnAccess.GetPath(path);
-            tpnAccess.WriteJsonTabPageNames(tabPageName);
+            bool result = tpnAccess.WriteJsonTabPageNames(tabPageName);
+            if (result)
+            {
+                tabC_ctx.TabPages.Add(tabPage);
+            }
             // 添加Tab
-            tabC_ctx.TabPages.Add(tabPage);
 
             Logger.Debug("[添加类别] 执行终了");
         }
