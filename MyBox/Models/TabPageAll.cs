@@ -8,6 +8,11 @@ namespace MyBox.Models
 {
     public class TabPageAll
     {
+        public TabPageAll()
+        {
+            TabPageNames = new List<TabPageNames>();
+        }
+
         public List<TabPageNames> TabPageNames { get; set; }
     }
 }

@@ -45,15 +45,15 @@ namespace MyBox.Common
         /// </summary>
         public void WriteJsonTabPageNames(string tabPageName)
         {
+            tabPageAll = new TabPageAll();
             Logger.Debug("[保存tabPage的名字] 执行开始");
             // 读取json数据存入tpnList里
             try
             {
-                TabPageAll tabPageAll = JsonAccess.ReadJson(path);
-                Logger.Debug("读取json数据存入tpnList里:" + tabPageAll.TabPageNames.Count.ToString());
-                if (tabPageAll != null)
+                TabPageAll obj = JsonAccess.ReadJson(path);
+                if (obj != null)
                 {
-                    foreach (TabPageNames item in tabPageAll.TabPageNames)
+                    foreach (TabPageNames item in obj.TabPageNames)
                     {
                         TabPageNames tpn1 = new TabPageNames();
                         tpn1.Name = item.Name;
