@@ -22,8 +22,6 @@ namespace MyBox
 
         }
 
-        Excel.Worksheet activeSheet;
-
         /// <summary>
         /// 插入文本到开头
         /// </summary>

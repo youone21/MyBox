@@ -204,6 +204,7 @@
       <DependentUpon>AddTxt2.cs</DependentUpon>
     </Compile>
     <Compile Include="Log\Logger.cs" />
+    <Compile Include="Models\TabPageAll.cs" />
     <Compile Include="Models\TabPageNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

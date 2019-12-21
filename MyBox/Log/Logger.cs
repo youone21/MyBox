@@ -14,23 +14,19 @@ namespace MyBox.Log
         private static readonly Logger Logg = new Logger();
 
 
-        private Logger()
+        public Logger()
         {
 
         }
+
+        public string FileName { get; set; }
 
         private static void WriteLogs(string dirName, string type, string content)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
             if (!string.IsNullOrEmpty(path))
             {
-                path = AppDomain.CurrentDomain.BaseDirectory + dirName + "//" + type;
-                if (!Directory.Exists(path))
-                {
-                    Directory.CreateDirectory(path);
-                }
-                string _fileName = DateTime.Now.ToString("yyyyMMddhhmmssfff");
-                path = path + "\\" + _fileName + ".log";
+                path = AppDomain.CurrentDomain.BaseDirectory + dirName + "//" + type + ".log";
                 if (!File.Exists(path))
                 {
                     FileStream fs = File.Create(path);
@@ -41,9 +37,11 @@ namespace MyBox.Log
                     StackTrace trace = new StackTrace();
                     StackFrame frame = trace.GetFrame(3);//1代表上级，2代表上上级，以此类推
                     MethodBase method = frame.GetMethod();
-                    String className = method.ReflectedType.Name;
+                    string className = method.ReflectedType.Name;
+                    
+                    int lineNum = frame.GetFileLineNumber();
                     StreamWriter sw = new StreamWriter(path, true, System.Text.Encoding.Default);
-                    sw.WriteLineAsync(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss ") + (className ?? "") + " : "  + " --> " + content);
+                    sw.WriteLineAsync(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss ") + (className ?? "") + "行号："+lineNum.ToString() + " --> " + content);
                     sw.Close();
                 }
             }

@@ -11,28 +11,30 @@ namespace MyBox.Models
     /// </summary>
     public class TabPageNames
     {
-        /// <summary>
-        /// TabPage的名字
-        /// </summary>
-        private string _name;
+        ///// <summary>
+        ///// TabPage的名字
+        ///// </summary>
+        //private string _name;
 
-        /// <summary>
-        /// 取得 TabPage的名字
-        /// </summary>
-        /// <returns></returns>
-        public string GetName()
-        {
-            return _name;
-        }
+        ///// <summary>
+        ///// 取得 TabPage的名字
+        ///// </summary>
+        ///// <returns></returns>
+        //public string GetName()
+        //{
+        //    return _name;
+        //}
 
 
-        /// <summary>
-        /// 设定 TabPage的名字
-        /// </summary>
-        /// <param name="name"></param>
-        public void SetName(string name)
-        {
-            _name = name;
-        }
+        ///// <summary>
+        ///// 设定 TabPage的名字
+        ///// </summary>
+        ///// <param name="name"></param>
+        //public void SetName(string name)
+        //{
+        //    _name = name;
+        //}
+
+        public string Name { get; set; }
     }
 }

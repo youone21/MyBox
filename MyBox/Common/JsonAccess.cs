@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyBox.Log;
+using MyBox.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
@@ -19,6 +21,7 @@ namespace MyBox.Common
         /// <param name="obj">Json Data Model</param>
         public static void WriteJson(string path, object obj)
         {
+            Logger.Debug("开始写入Json文件 " + "文件名:" + path);
             string js1 = JsonConvert.SerializeObject(obj, Formatting.Indented);
             Console.WriteLine(js1);
 
@@ -41,6 +44,7 @@ namespace MyBox.Common
                 writer.Close();
                 sw.Close();
             }
+            Logger.Debug("结束写入Json文件");
         }
 
         /// <summary>
@@ -48,16 +52,37 @@ namespace MyBox.Common
         /// </summary>
         /// <param name="path">Json file path</param>
         /// <returns></returns>
-        public static JObject ReadJson(string path)
+        public static TabPageAll ReadJson(string path)
         {
-            using (StreamReader sr = new StreamReader(path))
+            Logger.Debug("开始读取Json文件 " + "文件名:" + path);
+            TabPageAll obj = null;
+
+            string jsonStr = File.ReadAllText(path);
+            if (!string.IsNullOrEmpty(jsonStr))
             {
-                JsonTextReader reader = new JsonTextReader(sr);
-
-                JObject jObj = (JObject)JToken.ReadFrom(reader);
-
-                return jObj;
+                try
+                {
+                    obj = JsonConvert.DeserializeObject<TabPageAll>(jsonStr);
+                }
+                catch (Exception e)
+                {
+                    Logger.Error(e.ToString());
+                }
             }
+            else
+            {
+                Logger.Debug("Json文件:null");
+            }
+            //using (StreamReader sr = new StreamReader(path))
+            //{
+            //    JsonTextReader reader = new JsonTextReader(sr);
+            //    if (reader.LineNumber != 0)
+            //    {
+            //        jObj = (JObject)JToken.ReadFrom(reader);
+            //    }
+            //}
+            Logger.Debug("结束读取Json文件");
+            return obj;
         }
     }
 }

@@ -12,8 +12,12 @@ namespace MyBox.Common
 {
     public class TabPageNameAccess
     {
-        private List<TabPageNames> tpnList = new List<TabPageNames>();
+        private TabPageAll tabPageAll = new TabPageAll();
         private string path = null;
+
+        public TabPageNameAccess()
+        {
+        }
 
         /// <summary>
         /// 获取Json文件路径
@@ -43,39 +47,44 @@ namespace MyBox.Common
         {
             Logger.Debug("[保存tabPage的名字] 执行开始");
             // 读取json数据存入tpnList里
-            JObject jObj = JsonAccess.ReadJson(tabPageName);
-
-            if (jObj != null && jObj.Count > 0)
+            try
             {
-                foreach (JToken item in jObj["tabPageNames"])
+                TabPageAll tabPageAll = JsonAccess.ReadJson(path);
+                Logger.Debug("读取json数据存入tpnList里:" + tabPageAll.TabPageNames.Count.ToString());
+                if (tabPageAll != null)
                 {
-                    TabPageNames tpn1 = new TabPageNames();
-                    tpn1.SetName(item["Name"].ToString());
-                    tpnList.Add(tpn1);
+                    foreach (TabPageNames item in tabPageAll.TabPageNames)
+                    {
+                        TabPageNames tpn1 = new TabPageNames();
+                        tpn1.Name = item.Name;
+                        tabPageAll.TabPageNames.Add(tpn1);
+                    }
                 }
             }
-
-            int cnt = 0;
-
-            if (tpnList != null && tpnList.Count > 0)
+            catch (Exception e)
             {
-                cnt = (from tpn in tpnList
-                           where tpn.GetName().Contains(tabPageName)
-                           select tpn).Count();
+                Logger.Error(e.ToString());
+                return;
             }
 
-            if (cnt == 0)
-            {
-                // 声明TabPageNames
-                TabPageNames tpn2 = new TabPageNames();
+            //int cnt = 0;
 
-                tpn2.SetName(tabPageName);       // 画面传来在name
-                                                 // 添加到tpnList里
-                tpnList.Add(tpn2);
+            //if (tpnList != null && tpnList.Count > 0)
+            //{
+            //    cnt = (from tpn in tpnList
+            //           where tpn.Name.Contains(tabPageName)
+            //           select tpn).Count();
+            //}
 
-                // 写入json
-                JsonAccess.WriteJson(tabPageName, tpnList);
-            }
+            // 声明TabPageNames
+            TabPageNames tpn2 = new TabPageNames();
+
+            tpn2.Name = tabPageName;       // 画面传来在name
+                                           // 添加到tpnList里
+            tabPageAll.TabPageNames.Add(tpn2);
+
+            // 写入json
+            JsonAccess.WriteJson(path, tabPageAll);
 
             // 如果添加在名字存在
 

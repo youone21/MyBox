@@ -22,6 +22,34 @@ namespace MyBox
         private string CellValue = string.Empty;
         private string CellInit = "示例文本";
 
+        private Logger logger;
+
+        private void AddTxt2_Load(object sender, EventArgs e)
+        {
+            txt_index.Text = "0";
+            Excel.Range range = Globals.ThisAddIn.Application.Selection[1];
+            if (range.Value == null)
+            {
+                CellValue = CellInit;
+                label2.Text = CellInit;
+                rtb.Text = CellInit;
+                return;
+            }
+            string value = null;
+            if (typeof(System.Double) == range.Value.GetType())
+            {
+                value = range.Value.ToString("G");
+                CellValue = value;
+            }
+            else
+            {
+                value = range.Value.ToString();
+                CellValue = value;
+            }
+            label2.Text = value;
+            rtb.Text = value;
+        }
+
         private void txt_content_KeyPress(object sender, KeyPressEventArgs e)
         {
             // 48代表0，57代表9，8代表空格，46代表小数点
@@ -62,6 +90,7 @@ namespace MyBox
             if (Globals.ThisAddIn.Application.ActiveCell.Value == null)
             {
                 Logger.Info("所选单元格为空！");
+                MessageBox.Show("所选单元格为空！");
                 return;
             }
 
@@ -145,31 +174,7 @@ namespace MyBox
             ChangeText();
         }
 
-        private void AddTxt2_Load(object sender, EventArgs e)
-        {
-            txt_index.Text = "0";
-            Excel.Range range = Globals.ThisAddIn.Application.Selection[1];
-            if (range.Value == null)
-            {
-                CellValue = CellInit;
-                label2.Text = CellInit;
-                rtb.Text = CellInit;
-                return;
-            }
-            string value = null;
-            if (typeof(System.Double) == range.Value.GetType())
-            {
-                value = range.Value.ToString("G");
-                CellValue = value;
-            }
-            else
-            {
-                value = range.Value.ToString();
-                CellValue = value;
-            }
-            label2.Text = value;
-            rtb.Text = value;
-        }
+ 
 
         private void ChangeText()
         {
