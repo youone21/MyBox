@@ -33,13 +33,17 @@
             // 
             // listView_sheets
             // 
+            this.listView_sheets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listView_sheets.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView_sheets.FullRowSelect = true;
             this.listView_sheets.HideSelection = false;
             this.listView_sheets.Location = new System.Drawing.Point(0, 0);
             this.listView_sheets.Name = "listView_sheets";
             this.listView_sheets.Size = new System.Drawing.Size(558, 1255);
             this.listView_sheets.TabIndex = 0;
             this.listView_sheets.UseCompatibleStateImageBehavior = false;
+            this.listView_sheets.View = System.Windows.Forms.View.List;
+            this.listView_sheets.Click += new System.EventHandler(this.listView_sheets_Click);
             // 
             // SheetsNav
             // 

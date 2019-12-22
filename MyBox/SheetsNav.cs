@@ -25,8 +25,14 @@ namespace MyBox
             {
                 listView_sheets.Items.Add(item.Name);
             }
-
             //Globals.ThisAddIn.Application.ActiveSheet.SelectionChange += new Excel.DocEvents_SelectionChangeEventHandler(SheetCalculate);
+        }
+
+        private void listView_sheets_Click(object sender, EventArgs e)
+        {
+            string sheetName = listView_sheets.SelectedItems[0].Text;
+            Excel.Worksheet sheet = Globals.ThisAddIn.Application.Sheets[sheetName];
+            sheet.Select();
         }
     }
 }
