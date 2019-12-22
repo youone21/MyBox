@@ -1,6 +1,7 @@
 ﻿using MyBox.Common;
 using MyBox.Log;
 using MyBox.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,8 +41,8 @@ namespace MyBox
             TabPageAll tabPageAll = new TabPageAll();
             try
             {
-                TabPageAll obj = new TabPageAll();
-                JsonAccess.ReadJson(JsonPath, obj);
+                TabPageAll obj = JsonAccess.ReadJson_TabNames(JsonPath);
+
                 if (obj != null)
                 {
                     foreach (TabPageNames item in obj.TabPageNames)
@@ -86,21 +87,7 @@ namespace MyBox
 
             // 写入json
             TabPageNameAccess tpnAccess = new TabPageNameAccess();
-            string sysPath = AppDomain.CurrentDomain.BaseDirectory;
-            string path = sysPath + @"Json\TabPageName.json";
-            try
-            {
-                if (!File.Exists(path))
-                {
-                    File.Create(path);
-                }
-            }
-            catch (Exception e1)
-            {
-                Logger.Error(e1.ToString());
-                return;
-            }
-
+            GetJsonPath(JsonFileName);
 
             TabPage tabPage = new TabPage();
             string tabPageName = "tp_" + text;
@@ -108,7 +95,7 @@ namespace MyBox
             tabPage.Text = text;
 
             // 写入Json
-            tpnAccess.GetPath(path);
+            tpnAccess.GetPath(JsonPath);
             TabPageAll tabPageAll = new TabPageAll();
             bool result = tpnAccess.WriteJsonTabPageNames(tabPageName, tabPageAll);
             if (result)

@@ -50,7 +50,7 @@ namespace MyBox.Common
             // 读取json数据存入tpnList里
             try
             {
-                TabPageAll obj = JsonAccess.ReadJson(path) as TabPageAll;
+                TabPageAll obj = JsonAccess.ReadJson_TabNames(path);
                 if (obj != null)
                 {
                     foreach (TabPageNames item in obj.TabPageNames)

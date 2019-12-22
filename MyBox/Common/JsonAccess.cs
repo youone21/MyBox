@@ -52,17 +52,17 @@ namespace MyBox.Common
         /// </summary>
         /// <param name="path">Json file path</param>
         /// <returns></returns>
-        public static object ReadJson(string path)
+        public static TabPageAll ReadJson_TabNames(string path)
         {
             Logger.Debug("开始读取Json文件 " + "文件名:" + path);
-            object obj = null;
+            TabPageAll obj = null;
 
             string jsonStr = File.ReadAllText(path);
             if (!string.IsNullOrEmpty(jsonStr))
             {
                 try
                 {
-                    obj = JsonConvert.DeserializeObject<object>(jsonStr);
+                    obj = JsonConvert.DeserializeObject<TabPageAll>(jsonStr);
                 }
                 catch (Exception e)
                 {
@@ -85,28 +85,9 @@ namespace MyBox.Common
             return obj;
         }
 
-        public static void ReadJson(string path, object obj)
+        public static string ReadJsonStr(string path)
         {
-            Logger.Debug("开始读取Json文件 " + "文件名:" + path);
-
-            string jsonStr = File.ReadAllText(path);
-            if (!string.IsNullOrEmpty(jsonStr))
-            {
-                try
-                {
-                    obj = JsonConvert.DeserializeObject<object>(jsonStr);
-                }
-                catch (Exception e)
-                {
-                    Logger.Error(e.ToString());
-                }
-            }
-            else
-            {
-                Logger.Debug("Json文件:null");
-            }
-            Logger.Debug("Json文件:" + obj.ToString());
-            Logger.Debug("结束读取Json文件");
+            return File.ReadAllText(path);          
         }
     }
 }
