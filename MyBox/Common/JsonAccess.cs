@@ -84,5 +84,29 @@ namespace MyBox.Common
             Logger.Debug("结束读取Json文件");
             return obj;
         }
+
+        public static void ReadJson(string path, object obj)
+        {
+            Logger.Debug("开始读取Json文件 " + "文件名:" + path);
+
+            string jsonStr = File.ReadAllText(path);
+            if (!string.IsNullOrEmpty(jsonStr))
+            {
+                try
+                {
+                    obj = JsonConvert.DeserializeObject<object>(jsonStr);
+                }
+                catch (Exception e)
+                {
+                    Logger.Error(e.ToString());
+                }
+            }
+            else
+            {
+                Logger.Debug("Json文件:null");
+            }
+            Logger.Debug("Json文件:" + obj.ToString());
+            Logger.Debug("结束读取Json文件");
+        }
     }
 }

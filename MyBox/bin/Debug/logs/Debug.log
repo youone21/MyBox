@@ -1,24 +1,12 @@
-2019-12-22 14:15:44 StorageBox行号：0 --> [获取Json路径]执行开始
-2019-12-22 14:15:44 StorageBox行号：0 --> [获取Json路径]执行结束
-2019-12-22 14:15:44 JsonAccess行号：0 --> 开始读取Json文件 文件名:E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\Json\TabPageName.json
-2019-12-22 14:15:44 JsonAccess行号：0 --> 结束读取Json文件
-2019-12-22 14:18:36 StorageBox行号：0 --> [获取Json路径]执行开始
-2019-12-22 14:18:37 StorageBox行号：0 --> [获取Json路径]执行结束
-2019-12-22 14:18:37 JsonAccess行号：0 --> 开始读取Json文件 文件名:E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\Json\TabPageName.json
-2019-12-22 14:18:37 JsonAccess行号：0 --> 结束读取Json文件
-2019-12-22 14:18:41 StorageBox行号：0 --> [添加类别] 执行开始
-2019-12-22 14:18:41 TabPageNameAccess行号：0 --> [保存tabPage的名字] 执行开始
-2019-12-22 14:18:41 JsonAccess行号：0 --> 开始读取Json文件 文件名:E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\Json\TabPageName.json
-2019-12-22 14:18:41 JsonAccess行号：0 --> 结束读取Json文件
-2019-12-22 14:18:41 JsonAccess行号：0 --> 开始写入Json文件 文件名:E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\Json\TabPageName.json
-2019-12-22 14:18:41 JsonAccess行号：0 --> 结束写入Json文件
-2019-12-22 14:18:41 TabPageNameAccess行号：0 --> [保存tabPage的名字] 执行终了
-2019-12-22 14:18:41 StorageBox行号：0 --> [添加类别] 执行终了
-2019-12-22 14:18:45 StorageBox行号：0 --> [添加类别] 执行开始
-2019-12-22 14:18:45 TabPageNameAccess行号：0 --> [保存tabPage的名字] 执行开始
-2019-12-22 14:18:45 JsonAccess行号：0 --> 开始读取Json文件 文件名:E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\Json\TabPageName.json
-2019-12-22 14:18:45 JsonAccess行号：0 --> 结束读取Json文件
-2019-12-22 14:18:45 JsonAccess行号：0 --> 开始写入Json文件 文件名:E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\Json\TabPageName.json
-2019-12-22 14:18:45 JsonAccess行号：0 --> 结束写入Json文件
-2019-12-22 14:18:45 TabPageNameAccess行号：0 --> [保存tabPage的名字] 执行终了
-2019-12-22 14:18:45 StorageBox行号：0 --> [添加类别] 执行终了
+2019-12-22 14:50:31 StorageBox行号：0 --> [收纳箱界面加载]执行开始
+2019-12-22 14:50:31 StorageBox行号：0 --> [获取Json路径]执行开始
+2019-12-22 14:50:31 StorageBox行号：0 --> [获取Json路径]执行结束
+2019-12-22 14:50:31 JsonAccess行号：0 --> 开始读取Json文件 文件名:E:\Github\GithubYouone\MyBox\MyBox\bin\Debug\Json\TabPageName.json
+2019-12-22 14:50:31 JsonAccess行号：0 --> Json文件:{
+  "TabPageNames": [
+    {
+      "Name": "tp_2222222121"
+    }
+  ]
+}
+2019-12-22 14:50:31 JsonAccess行号：0 --> 结束读取Json文件

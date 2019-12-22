@@ -40,7 +40,8 @@ namespace MyBox
             TabPageAll tabPageAll = new TabPageAll();
             try
             {
-                TabPageAll obj = JsonAccess.ReadJson(JsonPath) as TabPageAll;
+                TabPageAll obj = new TabPageAll();
+                JsonAccess.ReadJson(JsonPath, obj);
                 if (obj != null)
                 {
                     foreach (TabPageNames item in obj.TabPageNames)
