@@ -31,3 +31,4 @@ E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.csproj.GenerateResource.cache
 E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.csproj.CopyComplete
 E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.dll
 E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.pdb
+E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.SheetsNav.resources

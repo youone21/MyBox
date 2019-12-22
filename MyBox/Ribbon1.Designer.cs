@@ -37,20 +37,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ribbon1));
             this.tab1 = this.Factory.CreateRibbonTab();
             this.StorageBox = this.Factory.CreateRibbonGroup();
-            this.btn_Storage = this.Factory.CreateRibbonButton();
             this.group1 = this.Factory.CreateRibbonGroup();
+            this.group3 = this.Factory.CreateRibbonGroup();
+            this.btn_Storage = this.Factory.CreateRibbonButton();
             this.menu1 = this.Factory.CreateRibbonMenu();
             this.btn_addTxtToStart = this.Factory.CreateRibbonButton();
             this.btn_addTxtToMid = this.Factory.CreateRibbonButton();
             this.btn_addTxtToEnd = this.Factory.CreateRibbonButton();
-            this.group3 = this.Factory.CreateRibbonGroup();
             this.btn_userControl1 = this.Factory.CreateRibbonButton();
             this.btn_Terminal = this.Factory.CreateRibbonButton();
             this.btn_find = this.Factory.CreateRibbonButton();
+            this.group2 = this.Factory.CreateRibbonGroup();
+            this.btn_sheetNav = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.StorageBox.SuspendLayout();
             this.group1.SuspendLayout();
             this.group3.SuspendLayout();
+            this.group2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab1
@@ -59,6 +62,7 @@
             this.tab1.Groups.Add(this.StorageBox);
             this.tab1.Groups.Add(this.group1);
             this.tab1.Groups.Add(this.group3);
+            this.tab1.Groups.Add(this.group2);
             this.tab1.Label = "万能魔盒";
             this.tab1.Name = "tab1";
             // 
@@ -68,6 +72,20 @@
             this.StorageBox.Label = "收纳箱";
             this.StorageBox.Name = "StorageBox";
             // 
+            // group1
+            // 
+            this.group1.Items.Add(this.menu1);
+            this.group1.Label = "文本处理";
+            this.group1.Name = "group1";
+            // 
+            // group3
+            // 
+            this.group3.Items.Add(this.btn_userControl1);
+            this.group3.Items.Add(this.btn_Terminal);
+            this.group3.Items.Add(this.btn_find);
+            this.group3.Label = "group3";
+            this.group3.Name = "group3";
+            // 
             // btn_Storage
             // 
             this.btn_Storage.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -76,12 +94,6 @@
             this.btn_Storage.Name = "btn_Storage";
             this.btn_Storage.ShowImage = true;
             this.btn_Storage.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_Storage_Click);
-            // 
-            // group1
-            // 
-            this.group1.Items.Add(this.menu1);
-            this.group1.Label = "文本处理";
-            this.group1.Name = "group1";
             // 
             // menu1
             // 
@@ -112,14 +124,6 @@
             this.btn_addTxtToEnd.ShowImage = true;
             this.btn_addTxtToEnd.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_addTxtToEnd_Click);
             // 
-            // group3
-            // 
-            this.group3.Items.Add(this.btn_userControl1);
-            this.group3.Items.Add(this.btn_Terminal);
-            this.group3.Items.Add(this.btn_find);
-            this.group3.Label = "group3";
-            this.group3.Name = "group3";
-            // 
             // btn_userControl1
             // 
             this.btn_userControl1.Label = "UserControl1";
@@ -138,6 +142,18 @@
             this.btn_find.Name = "btn_find";
             this.btn_find.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_find_Click);
             // 
+            // group2
+            // 
+            this.group2.Items.Add(this.btn_sheetNav);
+            this.group2.Label = "group2";
+            this.group2.Name = "group2";
+            // 
+            // btn_sheetNav
+            // 
+            this.btn_sheetNav.Label = "Sheet导航";
+            this.btn_sheetNav.Name = "btn_sheetNav";
+            this.btn_sheetNav.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_sheetNav_Click);
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -152,6 +168,8 @@
             this.group1.PerformLayout();
             this.group3.ResumeLayout(false);
             this.group3.PerformLayout();
+            this.group2.ResumeLayout(false);
+            this.group2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -170,6 +188,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_find;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup StorageBox;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_Storage;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group2;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_sheetNav;
     }
 
     partial class ThisRibbonCollection

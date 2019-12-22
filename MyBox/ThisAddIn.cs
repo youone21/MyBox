@@ -111,6 +111,41 @@ namespace MyBox
             }
         }
 
+        public void ShowSheetsNav()
+        {
+            int hwnd = this.Application.ActiveWindow.Hwnd;
+            Logger.Info("ShowSheetsNav：" + "Hwnd：" + hwnd.ToString());
+
+            SheetsNav ctrl = new SheetsNav();
+            CustomTaskPane pane = this.CustomTaskPanes.Add(ctrl, "***", this.Application.ActiveWindow);
+
+            if (taskPane.ContainsKey(hwnd.ToString() + "SheetsNav"))
+            {
+                if (taskPane != null && taskPane.Count() != 0)
+                {
+                    taskPane.TryGetValue(hwnd.ToString() + "SheetsNav", out pane);
+                    Logger.Info(pane.Window.ToString());
+                    if (pane.Visible == false)
+                    {
+                        pane.Visible = true;
+                    }
+                    else
+                    {
+                        pane.Visible = false;
+                    }
+                }
+            }
+            else
+            {
+                taskPane.Add(hwnd.ToString() + "SheetsNav", pane);
+                taskPane.TryGetValue(hwnd.ToString() + "SheetsNav", out pane);
+                Logger.Info(pane.ToString());
+
+                pane.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionRight;
+                pane.Visible = true;
+            }
+        }
+
         #region VSTO 生成的代码
 
         /// <summary>

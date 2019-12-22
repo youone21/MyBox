@@ -215,6 +215,12 @@
     <Compile Include="Form\StorageBox.Designer.cs">
       <DependentUpon>StorageBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="SheetsNav.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SheetsNav.Designer.cs">
+      <DependentUpon>SheetsNav.cs</DependentUpon>
+    </Compile>
     <Compile Include="Terminal.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -250,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\StorageBox.resx">
       <DependentUpon>StorageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SheetsNav.resx">
+      <DependentUpon>SheetsNav.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Terminal.resx">
       <DependentUpon>Terminal.cs</DependentUpon>

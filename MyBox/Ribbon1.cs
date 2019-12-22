@@ -86,5 +86,10 @@ namespace MyBox
             sb.StartPosition = FormStartPosition.CenterParent;
             sb.ShowDialog();
         }
+
+        private void btn_sheetNav_Click(object sender, RibbonControlEventArgs e)
+        {
+            Globals.ThisAddIn.ShowSheetsNav();
+        }
     }
 }
