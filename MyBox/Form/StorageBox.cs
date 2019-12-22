@@ -65,8 +65,8 @@ namespace MyBox
 
             foreach (TabPageNames item in tabPageAll.TabPageNames)
             {
-                Logger.Debug("开始添加Tab：" + item.Name);
-                tabC_ctx.TabPages.Add(item.Name);
+                Logger.Debug("开始添加Tab：" + item.Name.Remove(0, 3));
+                tabC_ctx.TabPages.Add(item.Name.Remove(0, 3));
             }
             Logger.Debug("[收纳箱界面加载]执行结束");
         }
@@ -83,6 +83,7 @@ namespace MyBox
             if (string.IsNullOrEmpty(text))
             {
                 MessageBox.Show("请输入类别名称!");
+                return;
             }
 
             // 写入json
@@ -103,8 +104,8 @@ namespace MyBox
                 tabC_ctx.TabPages.Clear();
                 foreach (TabPageNames item in tabPageAll.TabPageNames)
                 {
-                    Logger.Debug("开始添加Tab：" + item.Name);
-                    tabC_ctx.TabPages.Add(item.Name);
+                    Logger.Debug("开始添加Tab：" + item.Name.Remove(0, 3));
+                    tabC_ctx.TabPages.Add(item.Name.Remove(0, 3));
                 }
             }
             // 添加Tab

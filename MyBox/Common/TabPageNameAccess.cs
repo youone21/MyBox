@@ -45,7 +45,6 @@ namespace MyBox.Common
         /// </summary>
         public bool WriteJsonTabPageNames(string tabPageName, TabPageAll tabPageAll)
         {
-            tabPageAll = new TabPageAll();
             Logger.Debug("[保存tabPage的名字] 执行开始");
             // 读取json数据存入tpnList里
             try
@@ -72,7 +71,7 @@ namespace MyBox.Common
             if (tabPageAll != null && tabPageAll.TabPageNames.Count > 0)
             {
                 cnt = (from tpn in tabPageAll.TabPageNames
-                       where tpn.Name.Contains(tabPageName)
+                       where tpn.Name == tabPageName
                        select tpn).Count();
             }
 
