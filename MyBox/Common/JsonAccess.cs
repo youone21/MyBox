@@ -52,17 +52,17 @@ namespace MyBox.Common
         /// </summary>
         /// <param name="path">Json file path</param>
         /// <returns></returns>
-        public static TabPageAll ReadJson(string path)
+        public static object ReadJson(string path)
         {
             Logger.Debug("开始读取Json文件 " + "文件名:" + path);
-            TabPageAll obj = null;
+            object obj = null;
 
             string jsonStr = File.ReadAllText(path);
             if (!string.IsNullOrEmpty(jsonStr))
             {
                 try
                 {
-                    obj = JsonConvert.DeserializeObject<TabPageAll>(jsonStr);
+                    obj = JsonConvert.DeserializeObject<object>(jsonStr);
                 }
                 catch (Exception e)
                 {

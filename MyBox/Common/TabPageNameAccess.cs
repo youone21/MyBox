@@ -13,7 +13,6 @@ namespace MyBox.Common
 {
     public class TabPageNameAccess
     {
-        private TabPageAll tabPageAll = new TabPageAll();
         private string path = null;
 
         public TabPageNameAccess()
@@ -44,14 +43,14 @@ namespace MyBox.Common
         /// <summary>
         /// 保存tabPage的名字
         /// </summary>
-        public bool WriteJsonTabPageNames(string tabPageName)
+        public bool WriteJsonTabPageNames(string tabPageName, TabPageAll tabPageAll)
         {
             tabPageAll = new TabPageAll();
             Logger.Debug("[保存tabPage的名字] 执行开始");
             // 读取json数据存入tpnList里
             try
             {
-                TabPageAll obj = JsonAccess.ReadJson(path);
+                TabPageAll obj = JsonAccess.ReadJson(path) as TabPageAll;
                 if (obj != null)
                 {
                     foreach (TabPageNames item in obj.TabPageNames)
