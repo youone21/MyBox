@@ -6,6 +6,8 @@ using Microsoft.Office.Tools.Ribbon;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
+using Microsoft.Office.Interop.Excel;
+using System.Drawing;
 
 namespace MyBox
 {
@@ -91,5 +93,65 @@ namespace MyBox
         {
             Globals.ThisAddIn.ShowSheetsNav();
         }
+
+        #region 聚光灯
+
+        private FormatCondition format;
+        private Color color = Color.Yellow;
+
+        private void btn_light_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (btn_light.Checked)
+            {
+
+                ApplicationChange(Globals.ThisAddIn.Application.ActiveSheet
+                                  , Globals.ThisAddIn.Application.Selection);
+                Globals.ThisAddIn.Application.SheetSelectionChange += ApplicationChange;
+            }
+            else
+            {
+                if (format != null)
+                {
+                    format.Delete();
+                    format = null;
+                }
+                Globals.ThisAddIn.Application.SheetSelectionChange -= ApplicationChange;
+            }
+        }
+
+        private void ApplicationChange(Object sh, Range range)
+        {
+            if (format != null)
+            {
+                format.Delete();
+                format = null;
+            }
+
+            Range range1 = ((Worksheet)sh).Range["$1:$1048576"];
+            string rule = "=OR(CELL(\"row\")=ROW(),CELL(\"col\")=COLUMN())";
+            format = (FormatCondition)range1.FormatConditions.Add(XlFormatConditionType.xlExpression
+                                                                  , Type.Missing
+                                                                  , rule
+                                                                  , Type.Missing
+                                                                  , Type.Missing
+                                                                  , Type.Missing
+                                                                  , Type.Missing
+                                                                  , Type.Missing);
+
+            format.Font.Bold = true;
+            format.Interior.Color = color;
+        }
+
+        private void btn_ligth_color_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                color = colorDialog1.Color;
+                ApplicationChange(Globals.ThisAddIn.Application.ActiveSheet
+                                  , Globals.ThisAddIn.Application.Selection);
+            }
+        }
+
+        #endregion
     }
 }
