@@ -2,7 +2,6 @@ F:\GitHub\youone21\MyBox\MyBox\bin\Debug\MyBox.dll
 F:\GitHub\youone21\MyBox\MyBox\bin\Debug\MyBox.pdb
 F:\GitHub\youone21\MyBox\MyBox\bin\Debug\MyBox.dll.manifest
 F:\GitHub\youone21\MyBox\MyBox\bin\Debug\MyBox.vsto
-F:\GitHub\youone21\MyBox\MyBox\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
 F:\GitHub\youone21\MyBox\MyBox\obj\Debug\MyBox.csprojAssemblyReference.cache
 F:\GitHub\youone21\MyBox\MyBox\obj\Debug\MyBox.AddTxt1.resources
 F:\GitHub\youone21\MyBox\MyBox\obj\Debug\MyBox.AddTxt2.resources
@@ -33,3 +32,8 @@ E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.dll
 E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.pdb
 E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.SheetsNav.resources
 E:\Github\GithubYouone\MyBox\MyBox\obj\Debug\MyBox.csproj.CoreCompileInputs.cache
+F:\Github\youone21\MyBox\MyBox\bin\Debug\Newtonsoft.Json.dll
+F:\Github\youone21\MyBox\MyBox\obj\Debug\MyBox.Find.resources
+F:\Github\youone21\MyBox\MyBox\obj\Debug\MyBox.StorageBox.resources
+F:\Github\youone21\MyBox\MyBox\obj\Debug\MyBox.SheetsNav.resources
+F:\Github\youone21\MyBox\MyBox\obj\Debug\MyBox.Terminal.resources

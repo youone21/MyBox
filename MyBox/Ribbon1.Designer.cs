@@ -35,6 +35,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ribbon1));
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tab1 = this.Factory.CreateRibbonTab();
             this.StorageBox = this.Factory.CreateRibbonGroup();
             this.group1 = this.Factory.CreateRibbonGroup();
@@ -52,7 +53,6 @@
             this.btn_sheetNav = this.Factory.CreateRibbonButton();
             this.btn_light = this.Factory.CreateRibbonSplitButton();
             this.btn_ligth_color = this.Factory.CreateRibbonButton();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tab1.SuspendLayout();
             this.StorageBox.SuspendLayout();
             this.group1.SuspendLayout();
@@ -170,6 +170,7 @@
             // 
             this.btn_light.ButtonType = Microsoft.Office.Tools.Ribbon.RibbonButtonType.ToggleButton;
             this.btn_light.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.btn_light.Image = global::MyBox.Properties.Resources.聚光灯;
             this.btn_light.Items.Add(this.btn_ligth_color);
             this.btn_light.Label = "聚光灯";
             this.btn_light.Name = "btn_light";
